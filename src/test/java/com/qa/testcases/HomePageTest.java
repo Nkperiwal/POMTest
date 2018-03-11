@@ -31,7 +31,7 @@ public class HomePageTest extends TestBase {
 		 WebDriverWait wait1 = new WebDriverWait(oBaseUtil.getDriver(), 50);
 		    wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("mainpanel")));
 		    System.out.println("1");
-		oBaseUtil.switchToFrame("mainpanel");
+		//oBaseUtil.switchToFrame("mainpanel");
 
 	}
 	
