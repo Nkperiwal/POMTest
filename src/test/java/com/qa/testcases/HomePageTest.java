@@ -1,5 +1,8 @@
 package com.qa.testcases;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,7 +28,10 @@ public class HomePageTest extends TestBase {
 		initialize();
 		oLoginPage = new LoginPage();
 		oHomePage = oLoginPage.login(freeCRMUserName,freeCRMPassword);
-		oBaseUtil.switchToFrame("mainpanel");
+		 WebDriverWait wait1 = new WebDriverWait(oBaseUtil.getDriver(), 50);
+		    wait1.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.name("mainpanel")));
+		    System.out.println("1");
+		//oBaseUtil.switchToFrame("mainpanel");
 
 	}
 	
@@ -35,6 +41,7 @@ public class HomePageTest extends TestBase {
 		String expectedLoginPageTitle = "CRMPRO";
 		//SoftAssert softAssertion = new SoftAssert();
 		//softAssertion.assertEquals(true, false);
+		System.out.println(sActualLoginPageTitle);
 		oBaseUtil.verifyTitle(sActualLoginPageTitle, expectedLoginPageTitle);
 		//softAssertion.assertAll();
 	}	

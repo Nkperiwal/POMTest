@@ -33,7 +33,8 @@ public class ConfigProperties {
 	static {
 
 		Properties propertiesObj = new Properties();
-		String path = System.getProperty("user.dir")+"\\src\\main\\java\\com\\qa\\config\\config.properties";
+		//String path = "Users/admin/Documents/workspace-sts-3.9.2.RELEASE/PageObjectModel/PageObjectModel/src/main/java/com/qa/config/config.properties";
+		String path = System.getProperty("user.dir")+"/src/main/java/com/qa/config/config.properties";
 		System.out.println("Properties file path ..." + path);
 
 		try {

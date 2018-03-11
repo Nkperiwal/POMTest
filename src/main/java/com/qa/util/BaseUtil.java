@@ -24,6 +24,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -77,8 +78,7 @@ public class BaseUtil {
 
 			case 3:
 
-				System.setProperty("webdriver.chrome.driver",
-						System.getProperty("user.dir") + "\\src\\main\\resources\\" + "chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver","/Users/admin/Documents/workspace-sts-3.9.2.RELEASE/PageObjectModel/PageObjectModel/src/main/resources/chromedriver");
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory", downloadFilepath);
@@ -87,6 +87,11 @@ public class BaseUtil {
 				options.addArguments("--test-type");
 				options.addArguments("--disable-extensions"); // to disable browser extension popup
 				oDriver = new ChromeDriver(options);
+				break;
+				
+			case 4:
+
+				oDriver = new SafariDriver();
 				break;
 			default:
 				throw new Exception("Unknow Browser Type = " + sBrowserType);
@@ -158,6 +163,9 @@ public class BaseUtil {
 
 		if (sBrowserType.equals("chrome") || sBrowserType.equals("google") || sBrowserType.equals("google chrome")) {
 			return 3;
+		}
+		if (sBrowserType.equals("safari")) {
+			return 4;
 		}
 
 		return -1;
